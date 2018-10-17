@@ -1,0 +1,151 @@
+.layout {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    .sidebar {
+        width: 14rem;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Cairo', sans-serif;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+        z-index: 1;
+
+        .top {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1.7rem;
+            border-bottom: 1px solid #c6c7c7;
+
+            .name {
+                font-size: 2.3rem;
+                line-height: 2.3rem;
+                color: #586987;
+            }
+
+            .title {
+                font-size: 1rem;
+                color: #606263;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+
+        .categories {
+            .me {
+                background-color: #6599d7;
+
+                .icon {
+                    color: #6599d7;
+                }
+            }
+
+            .apps {
+                background-color: #f49d6c;
+
+                .icon {
+                    color: #f49d6c;
+                }
+            }
+
+            .music {
+                background-color: #b69fff;
+
+                .icon {
+                    color: #b69fff;
+                }
+            }
+
+            .link {
+                padding-left: 1.5rem;
+                padding-top: .7rem;
+                padding-bottom: .7rem;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                cursor: pointer;
+                background-color: white;
+
+                &.active,
+                &:hover {
+                    background-color: #f1f1f1;
+                    margin-left: .5rem;
+                }
+
+                .icon {
+                    font-size: 1.4rem;
+                    width: 1.6rem;
+                }
+
+                .link-text {
+                    margin-left: .5rem;
+                    color: #606263;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .body {
+        width: 100%;
+        height: 100%;
+
+        .section-header {
+            font-size: 46px;
+            padding-left: 1rem;
+            font-weight: bold;
+            font-family: 'Cairo';
+            background-color: #84a1c5;
+            color: white;
+        }
+
+        .columns {
+            display: flex;
+            flex-direction: row;
+
+            .intro {
+                padding: 1rem;
+                padding-right: 6rem;
+                .lead {
+                    font-family: 'Cairo';
+                    font-size: 30px;
+                }
+
+                .entry {
+                    font-family: 'Cairo';
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+            }
+
+            .pic {
+                height: 500px;
+                width: 500px;
+                position: relative;
+
+                img {
+                    height: 100%;
+                }
+
+                .fade {
+                    position: absolute;
+                    z-index: 2;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    top: 0;
+                    background: none;
+                    // background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 80%);
+                    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(80%,rgba(255,255,255,1)));
+                    // background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%);
+                    // background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%);
+                    // background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%);
+                    background: linear-gradient(to left, rgba(255,255,255,0) 80%,rgba(255,255,255,1) 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#00ffffff', endColorstr='#ffffff',GradientType=0 );
+                }
+            }
+        }
+    }
+
+}
