@@ -1,13 +1,9 @@
 <div class="layout">
     <div class="sidebar">
         <div class="top">
+            <img src="assets/me4.jpg">
             <div class="name">
-                Steve
-                <br>
-                Zelek
-            </div>
-            <div class="title">
-                software developer
+                Steve Zelek
             </div>
         </div>
         <div class="categories">
@@ -41,22 +37,55 @@
         <div class="section-header">
             about me
         </div>
-        <div class="columns">
-            <div class="intro">
-                <div class="lead">
+        <div class="content-wrapper">
+            <div class="summaries">
+                <div *ngIf="showingSummaries[0]" class="summary">
                     I'm a computer scientist from Pennsylvania.
                 </div>
-                <div class="entry">
-                    I work as a full stack developer at a company I love. I spend most of my free time teaching myself
-                    new things. I'm addicted to side projects. If it's not challenging work with a positive impact, I'm
-                    not interested.
+                <div *ngIf="showingSummaries[1]" class="summary">
+                    In college, I was a devoted academic.
                 </div>
             </div>
-            <div class="pic">
-                <img src="assets/me.jpg">
-                <div class="fade">
-
+            <div (scroll)="showSummaries()" class="content">
+                <div #bio class="columns">
+                    <div class="intro">
+                        <div class="lead">
+                            I'm a computer scientist from Pennsylvania.
+                        </div>
+                        <div class="entry">
+                            I work as a full stack developer at a company I love. I run a DND campaign, play guitar,
+                            sing
+                            in a choir, and play roller derby. I spend most of my free time teaching myself
+                            new things. I'm addicted to side projects.
+                        </div>
+                        <div class="entry">
+                            If it's not challenging work with a positive impact, I'm not interested.
+                        </div>
+                    </div>
+                    <img class="pic" src="assets/pa3.png">
                 </div>
+                <div class="break"></div>
+                <div #bio class="columns">
+                    <img class="pic" src="assets/mu.jpg">
+                    <div class="intro">
+                        <div class="lead">
+                            In college, I was a devoted academic.
+                        </div>
+                        <div class="entry">
+                            At Millersville University, I majored in Computer Science and minored in Math. My work
+                            ethic
+                            earned me a 3.93 GPA. One summer, I did two internships at once.
+                        </div>
+                        <div class="entry">
+                            I ran Millersville's Computer Science Club. We went to conferences in San Francisco, hosted
+                            professional tech speakers every month, and provided networking.
+                            I also led our Programming Team, and our team won the regional contest
+                            (PACISE) two years in a row.
+                        </div>
+                    </div>
+                </div>
+                <div class="break"></div>
+                <div class="filler"></div>
             </div>
         </div>
     </div>
