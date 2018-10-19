@@ -1,9 +1,18 @@
 import { Component, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { trigger, style, animate, transition, state } from '@angular/animations';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    animations: [
+        trigger('slideIn', [
+            transition(':enter', [
+                style({ transform: 'translateX(-30%)', opacity: 0 }),
+                animate('.8s ease-in', style({ transform: 'translateX(0%)', opacity: 1 }))
+            ]),
+        ])
+    ]
 })
 export class AppComponent {
     @ViewChildren('bio') bioSections: QueryList<ElementRef>;
@@ -11,14 +20,8 @@ export class AppComponent {
 
     showSummaries() {
         this.bioSections.forEach((e: ElementRef, i: number) => {
-            const viewRect = e.nativeElement.getBoundingClientRect();
             const parent = e.nativeElement.parentElement;
-            const parentRect = parent.getBoundingClientRect();
-            this.showingSummaries[i] = parent.scrollTop + parentRect.top > e.nativeElement.offsetTop + viewRect.height;
-            console.log(parent.scrollTop , parentRect.top, e.nativeElement.offsetTop + viewRect.height)
-            // console.log(parent.scrollTop, parentRect.y, -viewRect.top)
-            // console.log(e.nativeElement.offsetTop)
-            // console.log(viewRect, topCutoff);
+            this.showingSummaries[i] = this.showingSummaries[i] || parent.scrollTop >= ((i + 1) * parent.scrollHeight / this.bioSections.length) - parent.clientHeight;
         });
     }
 }

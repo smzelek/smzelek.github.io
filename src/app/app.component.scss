@@ -8,6 +8,7 @@
         background-color: white;
         display: flex;
         flex-direction: column;
+        // justify-content: space-between;
         font-family: 'Cairo', sans-serif;
         box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
         z-index: 2;
@@ -16,7 +17,8 @@
             display: flex;
             flex-direction: column;
             padding: 1rem 0;
-            border-bottom: 1px solid #c6c7c7;
+            height: 14rem;
+            // border-bottom: 1px solid #c6c7c7;
             align-items: center;
 
             img {
@@ -38,61 +40,109 @@
             }
         }
 
-        .categories {
-            .me {
-                background-color: #6599d7;
+        .summary {
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 1rem;
+        }
 
-                .icon {
-                    color: #6599d7;
-                }
-            }
+        .contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            text-align: center;
+            height: 7.5rem;
 
-            .apps {
-                background-color: #f49d6c;
+            flex-grow: 1;
+            padding-bottom: 1rem;
 
-                .icon {
-                    color: #f49d6c;
-                }
-            }
-
-            .music {
-                background-color: #b69fff;
-
-                .icon {
-                    color: #b69fff;
-                }
-            }
-
-            .link {
-                padding-left: 1.5rem;
-                padding-top: .7rem;
-                padding-bottom: .7rem;
+            .contact-options {
                 display: flex;
                 flex-direction: row;
-                align-items: flex-end;
-                cursor: pointer;
-                background-color: white;
+                justify-content: space-evenly;
 
-                &.active,
-                &:hover {
-                    // background-color: #f1f1f1;
-                    background-color: #eff6f9;
-                    margin-left: .5rem;
+                // i {
+                //     cursor: pointer;
+                // }
+
+                i {
+                    font-size: 3rem;
+
                 }
 
-                .icon {
-                    font-size: 1.7rem;
-                    width: 1.8rem;
+                .fa-twitter-square {
+                    color: #2795e9;
+                    background-color: white;
                 }
 
-                .link-text {
-                    margin-left: .5rem;
-                    color: #606263;
-                    font-family: 'Roboto', sans-serif;
-                    font-size: 1.2rem;
+                .fa-linkedin {
+                    color: #007bb6;
+                    background-color: white;
                 }
+
+                .fa-github-square {
+                    background-color: white;
+                    color: #444;
+                }
+
             }
         }
+
+        // .categories {
+        //     .me {
+        //         background-color: #6599d7;
+
+        //         .icon {
+        //             color: #6599d7;
+        //         }
+        //     }
+
+        //     .apps {
+        //         background-color: #f49d6c;
+
+        //         .icon {
+        //             color: #f49d6c;
+        //         }
+        //     }
+
+        //     .music {
+        //         background-color: #b69fff;
+
+        //         .icon {
+        //             color: #b69fff;
+        //         }
+        //     }
+
+        //     .link {
+        //         padding-left: 1.5rem;
+        //         padding-top: .7rem;
+        //         padding-bottom: .7rem;
+        //         display: flex;
+        //         flex-direction: row;
+        //         align-items: flex-end;
+        //         cursor: pointer;
+        //         background-color: white;
+
+        //         &.active,
+        //         &:hover {
+        //             // background-color: #f1f1f1;
+        //             background-color: #eff6f9;
+        //             margin-left: .5rem;
+        //         }
+
+        //         .icon {
+        //             font-size: 1.7rem;
+        //             width: 1.8rem;
+        //         }
+
+        //         .link-text {
+        //             margin-left: .5rem;
+        //             color: #606263;
+        //             font-family: 'Roboto', sans-serif;
+        //             font-size: 1.2rem;
+        //         }
+        //     }
+        // }
     }
 
     .body {
@@ -105,7 +155,7 @@
         .section-header {
             font-size: 3rem;
             line-height: 3rem;
-            padding: 1rem;
+            padding: 1rem 1rem 1rem 2rem;
             font-weight: bold;
             font-family: 'Cairo';
             background-color: #84a1c5;
@@ -119,23 +169,23 @@
             flex-direction: column;
             position: relative;
 
-            .summaries {
-                position: absolute;
-                top: 0;
-                width: 100%;
+            // .summaries {
+            //     position: absolute;
+            //     top: 0;
+            //     width: 100%;
 
-                .summary {
-                    font-family: 'Cairo';
-                    font-size: 1.9rem;
-                    line-height: 2rem;
-                    background: white;
-                    width: 100%;
-                    border-bottom: 1px solid #c6c7c7;
-                    padding: 1rem;
-                    color: #465061;
-                    box-sizing: border-box;
-                }
-            }
+            //     .summary {
+            //         font-family: 'Cairo';
+            //         font-size: 1.9rem;
+            //         line-height: 2rem;
+            //         background: white;
+            //         width: 100%;
+            //         border-bottom: 1px solid #c6c7c7;
+            //         padding: 1rem;
+            //         color: #465061;
+            //         box-sizing: border-box;
+            //     }
+            // }
 
             .content {
                 overflow-y: scroll;
@@ -157,36 +207,50 @@
                     margin: 0 auto;
                 }
 
-                .columns {
+                .bio {
                     display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    padding: 1rem 1rem 3rem;
+                    flex-direction: column;
+                    padding: 7rem 2rem;
 
-                    .pic {
-                        height: 19rem;
+                    &:nth-of-type(2) {
+                        .lead {
+                            text-align: right;
+                        }
                     }
 
-                    .intro {
-                        width: 60%;
+                    .lead {
+                        font-family: 'Cairo';
+                        font-size: 1.9rem;
+                        line-height: 1.9rem;
+                        color: #465061;
+                        padding: 1rem 0;
+                    }
 
-                        .lead {
-                            font-family: 'Cairo';
-                            font-size: 1.9rem;
-                            line-height: 1.9rem;
-                            color: #465061;
-                            padding: 1rem 0;
-                        }
+                    .info {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
 
-                        .entry {
-                            &:not(:first-of-type) {
-                                margin-top: 1rem;
+                        .entries {
+                            width: 60%;
+
+                            .entry {
+                                &:not(:first-of-type) {
+                                    margin-top: .5rem;
+                                }
+                                position: relative;
+                                color: #3d4654;
+                                font-family: 'Cairo';
+                                font-size: 1.2rem;
+                                line-height: 2.1rem;
                             }
-                            color: #3d4654;
-                            font-family: 'Cairo';
-                            font-size: 1.2rem;
-                            line-height: 1.9rem;
+
                         }
+
+                        .pic {
+                            height: 19rem;
+                        }
+
                     }
                 }
             }
