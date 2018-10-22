@@ -21,7 +21,6 @@ export class AppComponent {
     wasMessageSent = false;
 
     constructor() {
-
     }
 
     showSummaries() {
