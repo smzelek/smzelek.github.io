@@ -5,17 +5,20 @@
             <div class="name">
                 Steve Zelek
             </div>
+            <div class="title">
+                software maker
+            </div>
         </div>
         <div class="summaries">
-            <div @slideIn *ngIf="showingSummaries[0]" class="summary">
+            <!-- <div class="summary">
                 I'm a computer scientist from Pennsylvania.
             </div>
-            <div @slideIn *ngIf="showingSummaries[1]" class="summary">
+            <div class="summary">
                 In college, I was a devoted academic.
             </div>
-            <div @slideIn *ngIf="showingSummaries[2]" class="summary">
+            <div class="summary">
                 I'm always learning something new.
-            </div>
+            </div> -->
         </div>
         <div class="contact">
             <div class="contact-options">
@@ -59,87 +62,136 @@
         </div> -->
     </div>
     <div class="body">
-        <div class="section-header">
+        <div class="page-header">
             about me
         </div>
-        <div class="content-wrapper">
-            <!-- <div class="summaries">
-                <div *ngIf="showingSummaries[0]" class="summary">
-                    I'm a computer scientist from Pennsylvania.
-                </div>
-                <div *ngIf="showingSummaries[1]" class="summary">
-                    In college, I was a devoted academic.
-                </div>
-                <div *ngIf="showingSummaries[2]" class="summary">
-                    I'm always learning something new.
-                </div>
-            </div> -->
-            <div (scroll)="showSummaries()" class="content">
-                <div #bio class="bio">
-                    <div class="info">
-                        <div class="entries">
-                            <div class="lead">
-                                I'm a computer scientist from Pennsylvania.
-                            </div>
-                            <div class="entry">
-                                I work as a full stack developer at a company I love. On my team, we use the latest
-                                technologies to provide high performance UIs for managing complex financial data. The
-                                internal web apps we build support our employees in their mission to thrill clients.
-                            </div>
-                            <div class="entry">
-                                I've led short and long-term projects, and pushed for innovation both in and
-                                outside of tech.
-                            </div>
-                            <div class="entry">
-                                If it's not challenging work with a positive impact, I'm not interested.
-                            </div>
+
+        <div (scroll)="showSummaries()"
+             class="content">
+            <div #section
+                 class="bio"
+                 [ngClass]="{'unfocused': currentSection !== 0}">
+                <div class="info">
+                    <div class="entries">
+                        <div class="lead">
+                            I'm a computer scientist from Pennsylvania.
                         </div>
-                        <img class="pic" src="assets/pa4.jpg">
-                    </div>
-                </div>
-                <div class="break"></div>
-                <div #bio class="bio">
-                    <div class="info">
-                        <img class="pic" src="assets/mu.jpg">
-                        <div class="entries">
-                            <div class="lead">
-                                In college, I was a devoted academic.
-                            </div>
-                            <div class="entry">
-                                At Millersville University, I majored in Computer Science and minored in Math. My work
-                                ethic earned me a 3.93 GPA. One summer, I did two internships at once.
-                            </div>
-                            <div class="entry">
-                                I ran Millersville's Computer Science Club. We went to conferences in San Francisco,
-                                hosted
-                                professional tech speakers every month, and provided networking.
-                            </div>
-                            <div class="entry">
-                                I helped lead our Programming Team, and our team won the regional contest
-                                (PACISE) two years in a row.
-                            </div>
+                        <div class="entry">
+                            I work as a full stack developer at a company I love. On my team, we use the latest
+                            technologies to provide high performance UIs for managing complex financial data. The
+                            internal web apps we build support our employees in their mission to thrill clients.
+                        </div>
+                        <div class="entry">
+                            I've led short and long-term projects, and pushed for innovation both in and
+                            outside of tech.
+                        </div>
+                        <div class="entry">
+                            If it's not challenging work with a positive impact, I'm not interested.
                         </div>
                     </div>
+                    <img class="pic"
+                         src="assets/pa4.jpg">
                 </div>
-                <div class="break"></div>
-                <div #bio class="bio">
-                    <div class="info">
-                        <div class="entries">
-                            <div class="lead">
-                                I'm always learning something new.
-                            </div>
-                            <div class="entry">
-                                I run a DND campaign, play
-                                guitar, sing in a choir, and play roller derby. I spend most of my free time teaching
-                                myself new things. I'm addicted to starting new side projects.
-                            </div>
-                            <div class="entry">
-                                I love how fast our industry moves. I try to keep up to date on new developments in
-                                technology. Its so exciting.
-                            </div>
+            </div>
+            <div #section
+                 class="bio"
+                 [ngClass]="{'unfocused': currentSection !== 1}">
+                <div class="info">
+                    <div class="entries">
+                        <div class="lead">
+                            In college, I was a devoted academic.
                         </div>
-                        <img class="pic" src="assets/mu3.jpg">
+                        <div class="entry">
+                            At Millersville University, I majored in Computer Science and minored in Math. My work
+                            ethic earned me a 3.93 GPA. One summer, I did two internships at once.
+                        </div>
+                        <div class="entry">
+                            I ran Millersville's Computer Science Club. We went to conferences in San Francisco,
+                            hosted
+                            professional tech speakers every month, and provided networking.
+                        </div>
+                        <div class="entry">
+                            I helped lead our Programming Team, and our team won the regional contest
+                            (PACISE) two years in a row.
+                        </div>
                     </div>
+                    <img class="pic"
+                         src="assets/mu.jpg">
+                </div>
+            </div>
+            <div #section
+                 class="bio"
+                 [ngClass]="{'unfocused': currentSection !== 2}">
+                <div class="info">
+                    <div class="entries">
+                        <div class="lead">
+                            I'm always learning something new.
+                        </div>
+                        <div class="entry">
+                            I run a DND campaign, play
+                            guitar, sing in a choir, and play roller derby. I spend most of my free time teaching
+                            myself new things. I'm addicted to starting new side projects.
+                        </div>
+                        <div class="entry">
+                            I love how fast our industry moves. I try to keep up to date on new developments in
+                            technology. Its so exciting.
+                        </div>
+                    </div>
+                    <img class="pic"
+                         src="assets/mu3.jpg">
+                </div>
+            </div>
+            <div #section
+                 class="contact-end">
+                <div class="lead">
+                    Now that we're friends...
+                </div>
+                <div class="lead">
+                    I'd love to hear from you!
+                </div>
+                <div class="form-wrapper">
+                    <form [style.visibility]="wasMessageSent ? 'hidden' : 'visible'"
+                          (submit)="sentMessage()"
+                          class="contact-form"
+                          action="https://formspree.io/smzelek@gmail.com"
+                          method="POST"
+                          target="_blank">
+                        <div class="field">
+                            <div class="label">
+                                Name
+                            </div>
+                            <input required
+                                   type="text"
+                                   name="name">
+                        </div>
+                        <div class="field">
+                            <div class="label">
+                                Email
+                            </div>
+                            <input required
+                                   type="email"
+                                   name="_replyto">
+                        </div>
+                        <div class="field">
+                            <div class="label">
+                                Message
+                            </div>
+                            <textarea required
+                                      type="text"
+                                      name="_message"></textarea>
+                        </div>
+                        <button type="submit">Send</button>
+                    </form>
+                    <div class="form-complete-message"
+                         *ngIf="wasMessageSent">
+                        Thanks! I'll be in touch soon.
+                    </div>
+                </div>
+                <div class="contact-options-hint">
+                    <span class="arrow-hint">⟵</span>
+                    {{ wasMessageSent ? '(you can still hit me up on one of these sites)' : '(or hit me up on one of
+                    these
+                    sites)'}}
                 </div>
             </div>
         </div>

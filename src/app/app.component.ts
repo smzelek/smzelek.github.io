@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, ElementRef, ViewChildren, QueryList, HostListener } from '@angular/core';
 import { trigger, style, animate, transition, state } from '@angular/animations';
 
 @Component({
@@ -15,13 +15,41 @@ import { trigger, style, animate, transition, state } from '@angular/animations'
     ]
 })
 export class AppComponent {
-    @ViewChildren('bio') bioSections: QueryList<ElementRef>;
-    showingSummaries: Array<boolean> = [false, false];
+    @ViewChildren('section') sections: QueryList<ElementRef>;
+
+    currentSection = 0;
+    wasMessageSent = false;
+
+    constructor() {
+
+    }
 
     showSummaries() {
-        this.bioSections.forEach((e: ElementRef, i: number) => {
-            const parent = e.nativeElement.parentElement;
-            this.showingSummaries[i] = this.showingSummaries[i] || parent.scrollTop >= ((i + 1) * parent.scrollHeight / this.bioSections.length) - parent.clientHeight;
+        this.currentSection = this.sections.toArray().findIndex((e: ElementRef, i: number) => {
+            const view = e.nativeElement.getBoundingClientRect();
+            return view.top + view.height / 2 > 0;
         });
+    }
+
+    scrollToSection(i: number) {
+        this.sections.toArray()[i].nativeElement.scrollIntoView();
+    }
+
+    @HostListener('document:keydown.arrowup', ['$event'])
+    prevSection(event: KeyboardEvent) {
+        this.currentSection = Math.max(0, this.currentSection - 1);
+        event.preventDefault();
+        this.scrollToSection(this.currentSection);
+    }
+
+    @HostListener('document:keydown.arrowdown', ['$event'])
+    nextSection(event: KeyboardEvent) {
+        this.currentSection = Math.min(this.sections.length - 1, this.currentSection + 1);
+        event.preventDefault();
+        this.scrollToSection(this.currentSection);
+    }
+
+    sentMessage() {
+        this.wasMessageSent = true;
     }
 }
